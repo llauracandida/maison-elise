@@ -3,15 +3,17 @@
 
 import { useEffect, useState } from "react";
 
-const navigation = [
+
+  const navigation = [
   { name: "NEW IN", href: "/catalogo" },
-  { name: "CLOTHING", href: "/catalogo" },
-  { name: "SHOES", href: "/catalogo" },
-  { name: "BAGS", href: "/catalogo" },
-  { name: "ACCESSORIES", href: "/catalogo" },
+  { name: "CLOTHING", href: "/catalogo?categoria=CLOTHING" },
+  { name: "SHOES", href: "/catalogo?categoria=SHOES" },
+  { name: "BAGS", href: "/catalogo?categoria=BAGS" },
+  { name: "ACCESSORIES", href: "/catalogo?categoria=ACCESSORIES" },
   { name: "COLLECTIONS", href: "/catalogo" },
   { name: "ABOUT", href: "/#about" },
 ];
+
 
 export default function Header() {
   const [bagCount, setBagCount] = useState(0);

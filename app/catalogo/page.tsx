@@ -58,6 +58,13 @@ export default function Catalogo() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("categoria")?.toUpperCase();
+
+    if (category && categories.includes(category)) {
+      setSelectedCategory(category);
+    }
+
     const saved = localStorage.getItem("maisonFavorites");
 
     if (saved) {
@@ -183,9 +190,9 @@ export default function Catalogo() {
                 </div>
 
                 <a
-  href={`/produto?nome=${encodeURIComponent(product.name)}`}
-  className="block"
->
+                  href={`/produto?nome=${encodeURIComponent(product.name)}`}
+                  className="block"
+                >
                   <div className="flex items-start justify-between gap-3 py-4">
                     <div>
                       <p className="text-[9px] tracking-[2px] text-[#8995A1]">
@@ -212,4 +219,3 @@ export default function Catalogo() {
     </main>
   );
 }
-
